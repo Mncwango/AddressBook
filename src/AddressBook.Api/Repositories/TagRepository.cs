@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using PubNubMessaging.Core;
 using AddressBook.Api.Service;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 
 namespace AddressBook.Api.Repositories
 {
@@ -32,14 +33,15 @@ namespace AddressBook.Api.Repositories
             if (string.IsNullOrEmpty(connectionString))
             {
 
-                connectionString = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename ='C:\Users\mncwani\Documents\Visual Studio 2015\Projects\AddressBook.Api\src\AddressBook.Api\bin\Debug\netcoreapp1.0\App_Data\AddressBook.Api.mdf'; Integrated Security = True; Connect Timeout = 30";
-                //connectionString = @"Server=tcp:f9thsj5i8k.database.windows.net,1433;Database=AddressBook;User ID=Mpilo@f9thsj5i8k;Password=P@5sw0rd;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;";
+                connectionString = Startup.ConnectionString;
             }
             else
             {
                 connectionString = connectionstring;
             }
         }
+
+        public IConfigurationRoot Configuration { get; }
 
         /// <summary>
         /// Gets the connection.

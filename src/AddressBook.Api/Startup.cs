@@ -16,6 +16,8 @@ namespace AddressBook.Api
 {
     public class Startup
     {
+        private string _contenctRoot = "";
+        public static string ConnectionString { get; private set; }
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
@@ -24,6 +26,11 @@ namespace AddressBook.Api
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
+
+            _contenctRoot = env.ContentRootPath;
+           
+
+            
         }
 
         public IConfigurationRoot Configuration { get; }
@@ -42,20 +49,14 @@ namespace AddressBook.Api
                             .AllowAnyHeader();//allowing any header
                 });
             });
-            //services.AddSwaggerGen();
-            //var xmlPath = GetXmlCommentsPath();
-            //services.ConfigureSwaggerGen(options =>
-            //{
-            //    options.SingleApiVersion(new Info
-            //    {
-            //        Version = "v1",
-            //        Title = "Address Book API",
-            //        Description = "Proof of concerpt for address book management",
-            //        TermsOfService = "None",
-            //        Contact = new Contact() { Name = "Celimpilo AKA King MP", Email = "mncwango.celimpilo@gmail.com", Url = "" }
-            //    });
-            //    options.IncludeXmlComments(xmlPath);
-            //});
+            string conn = Configuration.GetConnectionString("DefaultConnection");
+            if (conn.Contains("%CONTENTROOTPATH%"))
+            {
+                conn = conn.Replace("%CONTENTROOTPATH%", _contenctRoot);
+                ConnectionString = conn;
+            }
+
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -80,6 +81,8 @@ namespace AddressBook.Api
                 routes.MapSpaFallbackRoute("spa-fallback", new { controller = "home", action = "index" });
             });
             app.UseCors("AllowAnyOrigin");
+
+
             
 
             
