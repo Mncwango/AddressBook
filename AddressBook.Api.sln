@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F7CDD504-C079-424B-955F-E809E5AC1597}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{65FA8193-9062-466B-85F3-E0E0E1476354}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "AddressBook.Api", "src\AddressBook.Api\AddressBook.Api.xproj", "{89EAC6A0-9BB9-4970-A792-37AB660E3142}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{89EAC6A0-9BB9-4970-A792-37AB660E3142}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89EAC6A0-9BB9-4970-A792-37AB660E3142}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89EAC6A0-9BB9-4970-A792-37AB660E3142}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89EAC6A0-9BB9-4970-A792-37AB660E3142}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{89EAC6A0-9BB9-4970-A792-37AB660E3142} = {F7CDD504-C079-424B-955F-E809E5AC1597}
+	EndGlobalSection
+EndGlobal

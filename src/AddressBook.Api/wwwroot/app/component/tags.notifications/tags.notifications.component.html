@@ -1,0 +1,28 @@
+﻿<div class="col-lg-4">
+
+    <button class="noti_Button btn btn-sm btn-default" style="font-size:36px;" (click)="OpenMessages()">
+        <!--<span class="glyphicon glyphicon-comment"></span>-->
+    </button>
+    <span class="badge badge-notify">{{messages.length}}</span>
+    <!--<ul class="list-group" *ngIf="showMessages">
+        <li class="list-group-item" *ngFor="let message of messages"><span class="alert alert-success">{{message}}</span></li>
+    </ul>-->
+
+
+    <div class="list-group" *ngIf="showMessages" style="width:50% !important;">
+        <a href="#" class="list-group-item" *ngFor="let message of messages">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="col-lg-9">
+                        {{message}}
+                    </div>
+                    <div class="col-lg-3 pull-right">
+                        <a href="#" class="badge" (click)="remove(message)">close</a>
+                    </div>
+                </div>
+                
+            </div>
+
+        </a>
+    </div>
+</div>

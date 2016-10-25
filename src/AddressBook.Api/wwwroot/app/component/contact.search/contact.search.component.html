@@ -1,0 +1,11 @@
+﻿<div class="col-lg-12">
+    <div class="col-lg-8">
+        <input #term type="text" placeholder="Search by Name, Company or #Tag" class="form-control"  (keyup)="search(term.value)" />
+       
+    </div>
+    <!--Next component for notifications should go here-->
+    <tag-notification></tag-notification>
+    <tags-search-list [tagsList]="tagsListResults"></tags-search-list>
+    <contact-results [contactsList]="contactlistResults" ></contact-results>
+    
+</div>

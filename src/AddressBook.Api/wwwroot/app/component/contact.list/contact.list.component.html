@@ -1,0 +1,20 @@
+﻿<div *ngIf="contactsList">
+    <div class="col-lg-8">
+        <div class="list-group">
+            <a href="#" class="list-group-item" *ngFor="let contact of contactsList" (click)="showDetails(contact)">
+                <div>
+                    <span class="header">{{contact.fullName}}</span>
+                    <tags-list [contactTags]="contactTags"></tags-list>
+                </div>
+
+                <p>{{contact.positionDetails}}</p>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-secondary" *ngFor="let tag of contact.tags">{{tag.name}}</button>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <contact-details [contactDetails]="contactdetail"></contact-details>
+    </div>
+</div>

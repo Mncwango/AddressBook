@@ -1,0 +1,34 @@
+﻿<div *ngIf="contactDetails">
+    <h3>{{contactDetails.fullName}}</h3>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <label for="">Phone:</label>
+            <span class="pull-right">
+                {{contactDetails.phone}}
+            </span>
+        </li>
+
+        <li class="list-group-item">
+            <label for="">Email:</label>
+            <span class="pull-right">
+                {{contactDetails.email}}
+            </span>
+        </li>
+
+        <li class="list-group-item">
+            <label for="">LinkedIn:</label>
+            <span class="pull-right">
+                {{contactDetails.linkedIn}}
+            </span>
+        </li>
+
+        <li class="list-group-item">
+            <label for="">Skype:</label>
+            <span class="pull-right">
+                {{contactDetails.skype}}
+            </span>
+        </li>
+    </ul>
+
+</div>
+
