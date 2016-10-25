@@ -1,0 +1,20 @@
+﻿.noti_Button {
+    width: 43px;
+    height: 40px;
+    line-height: 22px;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    background: rgba(128, 128, 128, 0.23);
+    /* margin: -3px 10px 0 10px; */
+    cursor: pointer;
+}
+
+.badge-notify {
+    background: red;
+    position: relative;
+    top: -11px;
+    left: -25px;
+}
+
+

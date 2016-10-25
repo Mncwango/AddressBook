@@ -1,0 +1,21 @@
+﻿<div class="pull-right">
+    
+    <button type="button" class="btn btn-primary" (click)="GetTagAllTags()">Tags</button>
+    <ul class="list-group col-lg-12" *ngIf="tags" style="z-index:999999999 !important;">
+        <li *ngFor="let tag of tags" class="list-group-item" style="height:75px !important;">
+        <!--<span class="pull-left badge">X</span>&nbsp;
+            &nbsp;-->
+            <div *ngIf="contactTags">
+                <span *ngIf="contactTags | TagAvailable:tag" class="badge pull-left">[x]</span>
+            </div>
+            <label for="tagName" *ngIf="editTagId !== tag.id">{{tag.name}}</label>
+            <span class=""><input type="text" [(ngModel)]="tag.name" *ngIf="editTagId === tag.id" class="form-control" (keyup.enter)="Update(tag)"/></span>
+            <span class="pull-right"><a href="#" (click)="Edit(tag)" class="badge">Edit</a><a href="#" class="badge" (click)="DeleteTag(tag)">delete</a></span>
+
+        </li>
+        <li *ngIf="addNew">
+            <input type="text" #tagName  class="form-control" (keyup.enter)="InsertTag(tagName.value)" (input)="newTag.name = tagName.value" />
+        </li>
+        <li class="list-group-item"><button class="btn btn-default" (click)="AddNewTag()" style="width:100%" >Add Tag</button></li>
+    </ul>
+</div>

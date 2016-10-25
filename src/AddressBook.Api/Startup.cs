@@ -28,9 +28,9 @@ namespace AddressBook.Api
             Configuration = builder.Build();
 
             _contenctRoot = env.ContentRootPath;
-           
 
-            
+
+
         }
 
         public IConfigurationRoot Configuration { get; }
@@ -49,14 +49,9 @@ namespace AddressBook.Api
                             .AllowAnyHeader();//allowing any header
                 });
             });
-            string conn = Configuration.GetConnectionString("DefaultConnection");
-            if (conn.Contains("%CONTENTROOTPATH%"))
-            {
-                conn = conn.Replace("%CONTENTROOTPATH%", _contenctRoot);
-                ConnectionString = conn;
-            }
 
-            
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -67,25 +62,24 @@ namespace AddressBook.Api
 
             //app.UseSwagger();
             //app.UseSwaggerUi();
-
-            app.UseStaticFiles();
-
-            app.UseStaticFiles(new StaticFileOptions
-            {
-                FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath, "node_modules")),
-                RequestPath = "/node_modules"
-            });
-
-            app.UseMvc(routes =>
-            {
-                routes.MapSpaFallbackRoute("spa-fallback", new { controller = "home", action = "index" });
-            });
+            app.UseMvc();
             app.UseCors("AllowAnyOrigin");
+            if (env.IsDevelopment())
+            {
+                string conn = Configuration.GetConnectionString("DefaultConnection");
+                if (conn.Contains("%CONTENTROOTPATH%"))
+                {
+                    conn = conn.Replace("%CONTENTROOTPATH%", _contenctRoot);
+                    ConnectionString = conn;
+                }
+            }
+            else
+            {
+                ConnectionString = Configuration.GetConnectionString("AzureConnection");
+            }
 
 
-            
 
-            
         }
 
         private string GetXmlCommentsPath()

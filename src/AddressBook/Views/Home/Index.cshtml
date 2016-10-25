@@ -1,0 +1,31 @@
+﻿<!doctype html>
+@{ 
+
+    Layout = null;
+}
+<html>
+<head>
+    <title>Address Book</title>
+    <base href="~/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="node_packages/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,300,100" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="http://cdn.pubnub.com/pubnub-3.14.4.min.js"></script>
+    <script src="node_packages/core-js/shim.min.js"></script>
+    <script src="node_packages/zone.js/zone.js"></script>
+    <script src="node_packages/reflect-metadata/Reflect.js"></script>
+    <script src="node_packages/systemjs/system.src.js"></script>
+    <script src="systemjs.config.js"></script>
+    <!--External-->
+    <script src="node_packages/jquery/jquery.js"></script>
+    <script src="node_packages/bootstrap/bootstrap.js"></script>
+    <script>
+      System.import('app').catch(console.error.bind(console));
+    </script>
+</head>
+<body>
+    <app-root>Loading...</app-root>
+</body>
+</html>

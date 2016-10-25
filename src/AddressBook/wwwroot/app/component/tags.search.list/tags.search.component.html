@@ -1,0 +1,22 @@
+﻿<div class="col-lg-8" *ngIf="tagsList">
+    <div class="list-group">
+        <a href="#" class="list-group-item" *ngFor="let tag of tagsList">
+            <!--<div class="row">
+                <div class="col-lg-6">
+                    <h2>{{tag.name}}</h2>
+                </div>
+                <div class="col-lg-2">
+                    <div class="pull-right">
+                        <a href="#" (click)="edit(tag)">edit</a>/<a href="#" >delete</a>
+                    </div>
+                </div>
+                <div class="col-lg-8" *ngIf="currentTag">
+                    <input type="text" class="form-control" [(ngModel)]="currentTag.name" />
+                    <button class="btn btn-primary" (click)="update()">Save</button>
+                    <button class="btn btn-warning" (click)="cancel()">Cancel</button>
+                </div>
+            </div>-->
+            <div><span class="header">{{tag.name}}</span></div>
+        </a>
+    </div>
+</div>

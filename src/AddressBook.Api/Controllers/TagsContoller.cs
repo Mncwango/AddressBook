@@ -52,7 +52,7 @@ namespace AddressBook.Api.Controllers
         /// <returns></returns>
         [AcceptVerbs("Get")]
         [Route("getAllTags")]
-        [HttpGet("{tagName}")]
+        [HttpGet()]
         public IActionResult GetAllTags()
         {
             try
